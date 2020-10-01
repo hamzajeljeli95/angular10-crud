@@ -1,7 +1,9 @@
-# AngularCrud
+# Angular 10 CRUD using Azure Functions
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.1.2.
+This project was made by following a tutorial found <a href="https://www.djamware.com/post/5d0eda6f80aca754f7a9d1f5/angular-8-tutorial-learn-to-build-angular-8-crud-web-app">Here</a>. Minor modifications were performed to make it work with Angular 10.
 
+The Backend of this project is made using Azure Functions v1, which can be found <a href="https://github.com/hamzajeljeli95/AngularTutorialBackend">here</a>. The original tutorial was using a Node.js application.
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
@@ -17,10 +19,6 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
 ## Further help
 
