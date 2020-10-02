@@ -9,9 +9,10 @@ import {Product} from '../product';
 })
 export class ProductsComponent implements OnInit {
 
-  displayedColumns: string[] = ['prod_name', 'prod_price'];
+  displayedColumns: string[] = ['prod_name', 'prod_price', 'prod_action'];
   data: Product[] = [];
   isLoadingResults = true;
+  rating = '0';
 
   constructor(private api: ApiService) {
   }
@@ -22,10 +23,16 @@ export class ProductsComponent implements OnInit {
       this.data = result;
       console.log(this.data);
       this.isLoadingResults = false;
+      this.rating = localStorage.getItem('rating');
     }, error => {
       console.log(error);
       this.isLoadingResults = false;
     });
+  }
+
+  ratingchanger() {
+    localStorage.setItem('rating', this.rating.toString());
+    console.log('new value is ' + localStorage.getItem('rating'));
   }
 
 }
