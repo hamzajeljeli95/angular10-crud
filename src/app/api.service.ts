@@ -1,9 +1,9 @@
 import {Injectable} from '@angular/core';
 
 // Importing API Related dependancies
-import {Observable, of, throwError} from 'rxjs';
-import {HttpClient, HttpHeaders, HttpErrorResponse} from '@angular/common/http';
-import {catchError, tap, map} from 'rxjs/operators';
+import {Observable, of} from 'rxjs';
+import {HttpClient, HttpHeaders} from '@angular/common/http';
+import {catchError, tap} from 'rxjs/operators';
 import {Product} from './product';
 
 // Defining HttpHeaders & apiUrl
@@ -22,13 +22,6 @@ const apiUrl = 'http://localhost:7071/api/products';
 export class ApiService {
 
   constructor(private http: HttpClient) {
-  }
-
-  private handleError<T>(operation = 'operation', result?: T) {
-    return (error: any): Observable<T> => {
-      console.error(error);
-      return of(result as T);
-    };
   }
 
   getProducts(): Observable<Product[]> {
@@ -70,5 +63,12 @@ export class ApiService {
       tap(_ => console.log(`deleted product w/ id= ${id}`)),
       catchError(this.handleError<Product>('deleteProduct'))
     );
+  }
+
+  private handleError<T>(operation = 'operation', result?: T) {
+    return (error: any): Observable<T> => {
+      console.error(error);
+      return of(result as T);
+    };
   }
 }

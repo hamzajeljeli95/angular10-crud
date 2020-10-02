@@ -1,6 +1,6 @@
 <div class="example-container mat-elevation-z8">
-  <div class="example-loading-shade"
-       *ngIf="isLoadingResults">
+  <div *ngIf="isLoadingResults"
+       class="example-loading-shade">
     <mat-spinner *ngIf="isLoadingResults"></mat-spinner>
   </div>
   <mat-card class="example-card">
@@ -17,13 +17,13 @@
       </dl>
     </mat-card-content>
     <mat-card-actions>
-      <a mat-flat-button color="primary" [routerLink]="['/products']">
+      <a [routerLink]="['/products']" color="primary" mat-flat-button>
         <mat-icon>list</mat-icon>
       </a>
-      <a mat-flat-button color="primary" [routerLink]="['/product-edit', product._id]">
+      <a [routerLink]="['/product-edit', product._id]" color="primary" mat-flat-button>
         <mat-icon>edit</mat-icon>
       </a>
-      <a mat-flat-button color="warn" (click)="deleteProduct(product._id)">
+      <a (click)="deleteProduct(product._id)" color="warn" mat-flat-button>
         <mat-icon>delete</mat-icon>
       </a>
     </mat-card-actions>

@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Router, ActivatedRoute} from '@angular/router';
+import {ActivatedRoute, Router} from '@angular/router';
 import {ApiService} from '../api.service';
-import {FormControl, FormGroupDirective, FormBuilder, FormGroup, NgForm, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm, Validators} from '@angular/forms';
 import {ErrorStateMatcher} from '@angular/material/core';
 
 export class MyErrorStateMatcher implements ErrorStateMatcher {
@@ -55,7 +55,7 @@ export class ProductEditComponent implements OnInit {
       .subscribe((res: any) => {
           const id = res._id;
           this.isLoadingResults = false;
-          this.router.navigate(['/product-details', id]);
+          this.router.navigate(['/product-details', res._id]);
         }, (err: any) => {
           console.log(err);
           this.isLoadingResults = false;
